@@ -1,0 +1,27 @@
+---
+const topics = ['Generative modeling', 'Biological systems', 'Neural dynamics'];
+---
+<div class="research-signature" aria-label="Research focus">
+  <div class="research-focus">
+    <p class="research-label">Research focus</p>
+    <ul class="research-topics">
+      {topics.map((topic) => <li>{topic}</li>)}
+    </ul>
+  </div>
+  <!-- Original flask-and-sprig illustration; a decorative research identity. -->
+  <svg class="research-motif" viewBox="0 0 152 64" fill="none" aria-hidden="true" focusable="false">
+    <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="38" y="12" width="20" height="5" rx="2.5" />
+      <path d="M42 17V29C42 32 41 35 39 38L28 54C26 57 28 60 32 60H64C68 60 70 57 68 54L57 38C55 35 54 32 54 29V17" />
+      <path fill="currentColor" fill-opacity=".09" stroke="none" d="M35 46H61L66 54C67 56 66 58 63 58H33C30 58 29 56 30 54Z" />
+      <path d="M35 46H61" stroke-width="1.1" />
+      <!-- Short petioles connect each leaf base to the stem without crossing a blade. -->
+      <path d="M87 59C94 46 99 30 104 17 M91 51 96 49 M97 39 91 35 M100 31 104 30" />
+      <path fill="currentColor" fill-opacity=".1" d="M91 35C79 36 76 27 77 19C87 22 93 27 91 35Z M104 17C100 10 105 4 114 2C114 10 110 16 104 17Z M104 30C109 19 120 17 130 18C125 29 115 35 104 30Z M96 49C104 39 118 40 126 44C117 53 105 57 96 49Z" />
+      <path d="M91 35Q84 30 80 24 M104 17 111 7 M104 30Q114 25 125 20 M96 49Q109 46 120 45" stroke-opacity=".45" stroke-width="1" />
+    </g>
+    <circle cx="48" cy="38" r="1.7" fill="currentColor" fill-opacity=".55" />
+    <circle cx="46" cy="8" r="1.6" fill="currentColor" />
+    <circle cx="53" cy="3" r="1.2" fill="currentColor" fill-opacity=".5" />
+  </svg>
+</div>

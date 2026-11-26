@@ -1,0 +1,5 @@
+---
+import { profile } from '../data/profile';
+const portrait = profile.portrait;
+---
+{portrait && <img class="portrait" src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} decoding="async" />}

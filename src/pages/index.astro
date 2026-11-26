@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import EducationList from '../components/EducationList.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import ExperienceEntry from '../components/ExperienceEntry.astro';
+import Portrait from '../components/Portrait.astro';
+import ResearchSignature from '../components/ResearchSignature.astro';
+import { profile } from '../data/profile';
+import { publications } from '../data/publications';
+import { experienceCategories } from '../data/experience';
+---
+<BaseLayout title="Academic Homepage" description="Nahyun Kim — KAIST undergraduate and University of Washington exchange student. Research in AI for biology, generative modeling, and computational biology.">
+  <div class="homepage-layout">
+    <aside class="profile-sidebar" aria-labelledby="name">
+      <div class="profile-identity">
+        <Portrait />
+        <div>
+          <h1 id="name">{profile.name}</h1>
+          <p class="headline">{profile.headline}</p>
+          <p class="affiliation">{profile.affiliation}</p>
+          <p class="location">{profile.location}</p>
+        </div>
+      </div>
+      <ContactLinks />
+    </aside>
+    <div class="main-column">
+      <section id="about" class="biography" aria-label="About Nahyun Kim">
+        <ResearchSignature />
+        {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="personal-note">{profile.personalNote}</p>
+      </section>
+      <section id="publications" class="academic-section" aria-labelledby="publications-title">
+        <SectionHeading title="Publications" labelId="publications-title" />
+        {publications.map((publication) => <PublicationEntry publication={publication} />)}
+      </section>
+      <section id="education-experience" class="academic-section" aria-labelledby="education-experience-title">
+        <SectionHeading title="Education & Experience" labelId="education-experience-title" />
+        <div class="credential-group" role="group" aria-labelledby="education-title">
+          <div class="group-label"><h3 id="education-title">Education</h3></div>
+          <EducationList />
+        </div>
+        {experienceCategories.map((category) => <div class="credential-group" role="group" aria-labelledby={category.id} aria-describedby={category.sharedRole ? `${category.id}-role` : undefined}>
+          <div class="group-label">
+            <h3 id={category.id}>{category.displayTitle ?? category.title}</h3>
+            {category.sharedRole && <p id={`${category.id}-role`} class="shared-role">{category.sharedRole}</p>}
+          </div>
+          <ul class="affiliation-list" aria-labelledby={category.id} aria-describedby={category.sharedRole ? `${category.id}-role` : undefined}>
+            {category.entries.map((entry) => <ExperienceEntry entry={entry} sharedRole={category.sharedRole} />)}
+          </ul>
+        </div>)}
+      </section>
+      <section id="contact" class="academic-section" aria-labelledby="contact-title">
+        <SectionHeading title="Contact" labelId="contact-title" />
+        <ul class="contact-links" aria-label="Contact">
+          <li><a href={`mailto:${profile.email}`}>Email</a></li>
+          <li><a href={profile.linkedin}>LinkedIn</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import { education } from '../data/profile';
+---
+<ul class="affiliation-list" aria-labelledby="education-title">
+  {education.map((entry) => <li class="affiliation-entry">
+    <div class="entry-heading">
+      <p class="entry-name"><strong>{entry.institution}</strong><span class="degree"> · {entry.displayProgram}</span></p>
+      <p class="dates">{entry.dates}</p>
+    </div>
+  </li>)}
+</ul>

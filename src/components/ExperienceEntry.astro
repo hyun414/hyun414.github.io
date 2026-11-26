@@ -1,0 +1,11 @@
+---
+import type { Experience } from '../data/experience';
+interface Props { entry: Experience; sharedRole?: string; }
+const { entry, sharedRole } = Astro.props;
+---
+<li class="affiliation-entry">
+  <div class="entry-heading">
+    <p class="entry-name"><strong>{entry.displayName ? <abbr title={entry.institution}>{entry.displayName}</abbr> : entry.institution}</strong>{!sharedRole && <span class="entry-role"> · {entry.displayRole ?? entry.role}</span>}</p>
+    <p class="dates">{entry.dates}</p>
+  </div>
+</li>

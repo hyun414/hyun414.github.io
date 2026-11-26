@@ -1,0 +1,21 @@
+@page { size: auto; margin: 16mm; }
+
+@media print {
+  :root { font-size: 10pt !important; line-height: 1.45 !important; }
+  html { scroll-behavior: auto !important; }
+  .site-header, .site-footer, .skip-link { display: none !important; }
+  .container { width: 100% !important; max-width: none !important; padding: 0 !important; }
+  .homepage-layout { display: block !important; }
+  .profile-sidebar { position: static !important; margin-bottom: 18pt; }
+  .profile-identity { display: flex !important; gap: 18pt; align-items: center; }
+  .portrait { width: 90px !important; margin: 0 !important; }
+  .profile-links { flex-direction: row !important; flex-wrap: wrap; gap: 12pt !important; }
+  h1 { font-size: 24pt !important; }
+  h2 { font-size: 16pt !important; }
+  h1, h2, h3, h4, .section-heading { break-after: avoid; }
+  .affiliation-entry, .publication-entry { break-inside: avoid; }
+  .academic-section { margin-top: 18pt !important; }
+  .section-heading { margin-bottom: 10pt !important; }
+  a { color: inherit !important; }
+  p, li { widows: 3; orphans: 3; }
+}

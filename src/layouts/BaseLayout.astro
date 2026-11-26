@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { profile } from '../data/profile';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  pageClass?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonicalPath = Astro.url.pathname, pageClass, noindex = false } = Astro.props;
+const canonicalURL = new URL(canonicalPath, Astro.site);
+const pageTitle = `${title} | ${profile.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class={pageClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Navigation />
+    <main id="main-content" class="container" tabindex="-1"><slot /></main>
+    <Footer />
+  </body>
+</html>

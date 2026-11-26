@@ -1,0 +1,11 @@
+---
+import { profile } from '../data/profile';
+import ProfileLinkIcon from './ProfileLinkIcon.astro';
+---
+<ul class="profile-links" aria-label="Contact and academic profiles">
+  <li><a href={`mailto:${profile.email}`}><ProfileLinkIcon name="email" /><span>Email</span></a></li>
+  <li><a href={profile.github}><ProfileLinkIcon name="github" /><span>GitHub</span></a></li>
+  <li><a href={profile.linkedin}><ProfileLinkIcon name="linkedin" /><span>LinkedIn</span></a></li>
+  <li><a href={profile.scholar}><ProfileLinkIcon name="scholar" /><span>Google Scholar</span></a></li>
+  {profile.cvPdf && <li><a href={profile.cvPdf} target="_blank" rel="noopener noreferrer" aria-label="CV (PDF, opens in a new tab)"><ProfileLinkIcon name="cv" /><span>CV</span></a></li>}
+</ul>
