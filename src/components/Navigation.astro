@@ -3,14 +3,16 @@ const homepage = Astro.url.pathname === '/';
 const links = [
   { label: 'About', id: 'about' },
   { label: 'Publications', id: 'publications' },
-  { label: 'Education & Experience', id: 'education-experience' },
+  { label: 'Education & Experience', mobileLabel: 'Background', id: 'education-experience' },
   { label: 'Contact', id: 'contact' },
 ];
 ---
 <header class="site-header">
   <nav class="container" aria-label="Main navigation">
     <ul class="nav-links">
-      {links.map(({ label, id }) => <li><a href={`${homepage ? '' : '/'}#${id}`}>{label}</a></li>)}
+      {links.map(({ label, mobileLabel, id }) => <li><a href={`${homepage ? '' : '/'}#${id}`}>
+        {mobileLabel ? <><span class="nav-label-full">{label}</span><span class="nav-label-mobile">{mobileLabel}</span></> : label}
+      </a></li>)}
     </ul>
   </nav>
 </header>
