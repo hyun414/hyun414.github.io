@@ -14,7 +14,9 @@ interface Props {
 
 const { title, description, canonicalPath = Astro.url.pathname, pageClass, noindex = false } = Astro.props;
 const canonicalURL = new URL(canonicalPath, Astro.site);
-const pageTitle = `${title} | ${profile.name}`;
+const pageTitle = `${profile.name} | ${title}`;
+const socialImageURL = new URL('/images/nahyun-kim-social.jpg', Astro.site);
+const socialImageAlt = 'Nahyun Kim — AI for Biology. KAIST · University of Washington.';
 ---
 
 <!doctype html>
@@ -34,9 +36,16 @@ const pageTitle = `${title} | ${profile.name}`;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <title>{pageTitle}</title>
   </head>
   <body class={pageClass}>

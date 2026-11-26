@@ -121,6 +121,7 @@ body:has(#contact:target) .nav-links a[href="#contact"] { color: var(--heading);
 #education-experience .entry-role, #education-experience .degree { font-size: .875rem; font-weight: 400; color: var(--muted); }
 #education-experience .dates { color: var(--muted); font-size: .8125rem; font-variant-numeric: tabular-nums; text-align: right; }
 #contact { border-top: 1px solid var(--line); padding-top: 22px; }
+#contact::before { top: 10px; }
 #contact .section-heading { margin-bottom: 0; padding: 0; border: 0; }
 #contact .section-heading::after { content: none; }
 #contact { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
