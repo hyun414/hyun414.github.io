@@ -10,7 +10,7 @@ export const profile = {
   affiliation: 'KAIST · University of Washington',
   location: 'Seoul, South Korea',
   bio: [
-    'I’m an undergraduate at KAIST, majoring in Biological Sciences with a double major in Computer Science, and an exchange student at the University of Washington. I want to use AI to better understand how complex biological systems work, from disease mechanisms to neural circuits. My long-term goal is to turn those insights into new directions for therapeutic discovery. At the Allen Institute, I work on machine learning approaches for neural population dynamics.',
+    'I’m an undergraduate at KAIST, majoring in Biological Sciences with a double major in Computer Science, and an exchange student at the University of Washington. I want to use AI to better understand how complex biological systems work, from disease mechanisms to neural circuits. My long-term goal is to turn those insights into new directions for therapeutic discovery. At the Allen Institute, I work on machine learning approaches for neural population dynamics. I’m open to research collaborations and industry opportunities, especially at the intersection of AI and biology.',
   ],
   personalNote: 'Outside of research, I enjoy cooking and boxing.',
   // Existing owner-supplied assets, used directly without duplication.
