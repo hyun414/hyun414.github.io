@@ -53,7 +53,6 @@ main { padding-block: 32px 28px; }
 .site-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line); }
 .nav-links { display: flex; flex-wrap: wrap; gap: 0 28px; min-height: 52px; padding: 0 0 0 calc(var(--sidebar-width) + var(--column-gap)); margin: 0; list-style: none; }
 .nav-links a { display: flex; align-items: center; min-height: 52px; border-bottom: 2px solid transparent; color: var(--muted); font-size: .875rem; font-weight: 500; }
-.nav-label-mobile { display: none; }
 .nav-links a:hover, .nav-links a:focus-visible { color: var(--link); border-bottom-color: var(--link); text-decoration: none; }
 /* Native fragment navigation also supplies the selected-link treatment. */
 body:not(:has(section:target)) .nav-links a[href="#about"],
@@ -153,10 +152,9 @@ body:has(#contact:target) .nav-links a[href="#contact"] { color: var(--heading);
   main { padding-top: 24px; }
   h1 { font-size: 1.875rem; }
   h2 { font-size: 1.375rem; }
-  .nav-links { flex-wrap: nowrap; justify-content: space-between; gap: 8px; min-height: 48px; padding-block: 0; }
+  .nav-links { flex-wrap: nowrap; justify-content: flex-start; gap: 22px; min-height: 48px; padding-block: 0; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--link-underline) transparent; }
+  .nav-links li { flex: 0 0 auto; }
   .nav-links a { width: fit-content; min-height: 48px; font-size: .875rem; white-space: nowrap; }
-  .nav-label-full { display: none; }
-  .nav-label-mobile { display: inline; }
   .profile-identity { gap: 16px; }
   .profile-identity > div { min-width: 0; }
   .affiliation, .location { font-size: 14px; }

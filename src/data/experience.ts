@@ -14,7 +14,7 @@ export const experienceCategories: { id: string; title: string; displayTitle?: s
     ],
   },
   {
-    id: 'biological-training', title: 'Biological Training', displayTitle: 'Bio. training', sharedRole: 'Student Researcher', entries: [
+    id: 'biological-training', title: 'Biological Training', displayTitle: 'Bio research', sharedRole: 'Student Researcher', entries: [
       { institution: 'Brain-RNA Laboratory, KAIST', displayName: 'BRL, KAIST', dates: 'Dec 2024 – Jun 2025', role: 'Student Researcher' },
       { institution: 'Eco. Lab, KAIST', dates: 'Sep 2023 – Dec 2023', role: 'Student Researcher' },
     ],
