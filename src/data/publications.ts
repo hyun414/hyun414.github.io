@@ -2,6 +2,7 @@ export interface ResourceLink { label: string; href: string; }
 export interface Publication {
   title: string;
   authors: string[];
+  equalContributionAuthors?: string[];
   venue: string;
   status: string;
   figure: { src: string; alt: string; width: number; height: number } | null;
@@ -11,6 +12,7 @@ export interface Publication {
 export const publications: Publication[] = [{
   title: 'Synthon Contrastive Learning for Synthesizable 3D Molecule Generation',
   authors: ['Nahyun Kim', 'Seul Lee', 'Sung Ju Hwang'],
+  equalContributionAuthors: ['Nahyun Kim', 'Seul Lee'],
   venue: 'NeurIPS 2026',
   status: 'Main Track (Poster), accepted',
   figure: {
