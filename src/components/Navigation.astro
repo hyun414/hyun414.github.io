@@ -14,3 +14,36 @@ const links = [
     </ul>
   </nav>
 </header>
+
+<script>
+  let highlightedSection: HTMLElement | null = null;
+  let highlightTimer: number | undefined;
+
+  function highlightSection(hash: string) {
+    const section = document.getElementById(hash.slice(1));
+    if (!section?.matches('.main-column > section')) return;
+
+    window.clearTimeout(highlightTimer);
+    highlightedSection?.classList.remove('section-highlight');
+    // Restart the cue even when the same menu item is selected again.
+    void section.offsetWidth;
+    section.classList.add('section-highlight');
+    highlightedSection = section;
+    highlightTimer = window.setTimeout(() => {
+      section.classList.remove('section-highlight');
+      highlightedSection = null;
+    }, 2200);
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>('.nav-links a').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.pathname === location.pathname && link.hash === location.hash) {
+        highlightSection(link.hash);
+      }
+    });
+  });
+
+  window.addEventListener('hashchange', () => highlightSection(location.hash));
+  if (location.hash) highlightSection(location.hash);
+</script>
